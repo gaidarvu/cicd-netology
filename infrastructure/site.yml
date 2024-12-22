@@ -42,29 +42,12 @@
         group: root
         mode: 0644
 
-# - name: Get PostgreSQL installed
-#   hosts: postgres
-#   become: true
-#   tasks:
-#     - name: Change repo file
-#       copy:
-#         src: CentOS-Base.repo
-#         dest: /etc/yum.repos.d/CentOS-Base.repo
-#         mode: 0644
-#         owner: root
-#         group: root
-
     - name: Install epel-release
       yum:
         name: epel-release
         state: present
 
-    # - name: Install PostgreSQL repos
-    #   yum:
-    #     name: pgdg-redhat-repo-42.0-38PGDG.noarch
-    #     state: present
-
-    - name: Install PostgreSQL
+    - name: Install PostgreSQL repo
       yum:
         name: https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
         state: present
